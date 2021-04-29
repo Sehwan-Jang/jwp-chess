@@ -41,7 +41,7 @@ public class SpringChessService {
         return chessGame;
     }
 
-    public BoardDto move(String roomId, MoveRequestDto moveRequestDto) throws SQLException {
+    public BoardDto move(String roomId, MoveRequestDto moveRequestDto) {
         BoardDto boardDto = movePiece(roomId, moveRequestDto);
         return boardDto;
     }

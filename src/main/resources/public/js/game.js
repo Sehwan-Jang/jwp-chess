@@ -13,6 +13,13 @@ const $roomId = document.getElementById("room").value;
 
 createBoard();
 
+function exceptionHandling(error) {
+    error.then(data => {
+        console.log(data);
+        alert(data.errorMessage);
+    })
+}
+
 function getFetch(url) {
     return fetch(url).then(response => {
         return response.json();
@@ -45,6 +52,10 @@ function postFetch(url, bodyData) {
         },
         body: bodyData
     }).then(response => {
+        if (!response.ok) {
+            exceptionHandling(response.json());
+            throw new Error(response.status);
+        }
         return response.json();
     })
 }
@@ -118,7 +129,8 @@ function clearBoard() {
 }
 
 function refreshBoard() {
-    if ($board.end == "true") {
+    console.log($board);
+    if ($board.end === "true") {
         confirm($board.turn + "(이)가 승리했습니다!!");
         clearRoom();
         return;

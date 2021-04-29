@@ -24,11 +24,11 @@ public class SpringChessRestController {
 
     @PostMapping("/{id}/command")
     public ResponseEntity<BoardDto> move(@PathVariable("id") String id, @RequestBody MoveRequestDto moveRequestDto) {
-        try {
+//        try {
             return ResponseEntity.ok(springChessService.move(id, moveRequestDto));
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().body(springChessService.loadRoom(id));
-        }
+//        } catch (Exception e) {
+//            return ResponseEntity.badRequest().body(springChessService.loadRoom(id));
+//        }
     }
 
     @GetMapping("{id}/path")
