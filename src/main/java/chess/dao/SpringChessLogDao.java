@@ -17,7 +17,7 @@ public class SpringChessLogDao {
 
     public SpringChessLogDao(DataSource dataSource, JdbcTemplate jdbcTemplate) {
         this.simpleJdbcInsert = new SimpleJdbcInsert(dataSource)
-                .withTableName("chessGame")
+                .withTableName("chessgame")
                 .usingGeneratedKeyColumns("id");
         this.jdbcTemplate = jdbcTemplate;
     }
